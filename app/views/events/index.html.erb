@@ -1,0 +1,13 @@
+<% @events.each do |event| %>
+  <li>
+    <%= event.name %>
+    <%= link_to "查看", event_path(event) %>
+    <%= link_to '編輯', edit_event_path(event) %>
+    <%= button_to '刪除', event_path(event), :method => :delete, :data => { :confirm => "你確定><?" } %>
+  </li>
+<% end %>
+</ul>
+
+<%= link_to '新行為', new_event_path %>
+
+<%= paginate @events %>

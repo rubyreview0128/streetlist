@@ -1,0 +1,16 @@
+<%= f.label :name, "行為名稱" %>
+<%= f.text_field :name %>
+
+<%= f.label :price, "價格" %>
+<%= f.text_field :price %>
+
+<%= f.label :category_id, "種類" %>
+<%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "選擇一個分類" %>
+
+<% if @event.errors.any? %>
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
