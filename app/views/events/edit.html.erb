@@ -1,4 +1,4 @@
 <%= form_for @event, :url => event_path(@event), :method => :patch do |f| %>
     <%= render :partial => 'form', :locals => { :f => f } %>
-    <%= f.submit "更新" %>
+    <%= f.submit "更新", :class => "btn btn-info" %>
 <% end %>

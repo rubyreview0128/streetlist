@@ -1,11 +1,16 @@
-<%= f.label :name, "行為名稱" %>
-<%= f.text_field :name %>
+<div class="form-group">
 
+<%= f.label :name, "行為名稱" %>
+<%= f.text_field :name, :class => "form-group mx-sm-3 mb-2" %>
+
+<div class="form-group mx-sm-3 mb-2">
 <%= f.label :price, "價格" %>
 <%= f.text_field :price %>
+</div>
 
 <%= f.label :category_id, "種類" %>
-<%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "選擇一個分類" %>
+<%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "選擇一個分類", :class => "exampleFormControlSelect1" %>
+</div>
 
 <% if @event.errors.any? %>
       <ul>

@@ -1,13 +1,24 @@
-<% @events.each do |event| %>
-  <li>
-    <%= event.name %>
-    <%= link_to "查看", event_path(event) %>
-    <%= link_to '編輯', edit_event_path(event) %>
-    <%= button_to '刪除', event_path(event), :method => :delete, :data => { :confirm => "你確定><?" } %>
-  </li>
-<% end %>
-</ul>
+<table class="table table-bordered table-dark">
+  <thead>
+     <tr>
+      <th scope="col">項目</th>
+      <th scope="col">查看</th>
+      <th scope="col">編輯</th>
+      <th scope="col">刪除</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+    <td><%= event.name %></td>
+    <td><%= link_to "查看", event_path(event), :class => "btn btn-primary" %></td>
+    <td><%= link_to '編輯', edit_event_path(event), :class => "btn btn-warning" %></td>
+    <td><%= button_to '刪除', event_path(event), :method => :delete, :data => { :confirm => "你確定><?" }, :class => "btn btn-danger" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
-<%= link_to '新行為', new_event_path %>
+<%= link_to '新行為', new_event_path, :class => "btn btn-success" %>
 
 <%= paginate @events %>
